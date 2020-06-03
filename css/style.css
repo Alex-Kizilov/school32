@@ -230,12 +230,12 @@ body{
 }
 .about-school__row-item {}
 .about-school__subtitle {
-	font-size: calc(22px + 6 * ((100vw - 320px) / (1160 - 320)));
+	font-size: calc(20px + 4 * ((100vw - 320px) / (1160 - 320)));
 	font-weight: 400;
 	margin-bottom: 10px;
 }
 .about-school__text {
-	font-size: calc(16px + 8 * ((100vw - 320px) / (1160 - 320)));
+	font-size: calc(16px + 2 * ((100vw - 320px) / (1160 - 320)));
 	line-height: 1.3;
 	margin-bottom: 30px;
 }
