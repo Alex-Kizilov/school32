@@ -246,4 +246,7 @@ body{
 	.about-school__row {
 		flex-direction: column;
 	}
+	.about-school__text:last-child {
+	margin-bottom: 20px;
+	}
 }
