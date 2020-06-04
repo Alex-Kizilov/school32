@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+@font-face {
+font-family: "Georgia"; 
+src: url("../fonts/Georgia.ttf") format("truetype"); 
+font-style: normal; 
+font-weight: normal; 
+} 
 /*Обнуление*/
 *{
 	padding: 0;
@@ -38,7 +44,7 @@ img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 /*--------------------*/
 body{
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Georgia';
 }
 .container {
 	max-width: 1160px;
@@ -51,6 +57,7 @@ body{
 	top: 0;
 	left: 0;
 	z-index: 50;
+	font-family: 'Open Sans', sans-serif;
 }
 .header:before {
 	content: '';
@@ -99,8 +106,8 @@ body{
 }
 @media (min-width: 768px) {
 	.header__list li {
-		padding: 25px 5px;
-		border-radius: 3px;
+		padding: 30px 5px;
+		border-radius: 2px;
 		transition: 0.3s;
 	}
 	.header__list li:hover {
@@ -238,6 +245,7 @@ body{
 	font-size: calc(16px + 2 * ((100vw - 320px) / (1160 - 320)));
 	line-height: 1.3;
 	margin-bottom: 30px;
+	color: #616161;
 }
 .about-school__text:last-child {
 	margin-bottom: 0;
@@ -247,6 +255,71 @@ body{
 		flex-direction: column;
 	}
 	.about-school__text:last-child {
-	margin-bottom: 20px;
+	margin-bottom: 30px;
+	}
+	.about-school__row-img {
+		max-width: 300px;
+		height: auto;
+	}
+}
+@media (max-width: 360px) {
+	.about-school__row-img {
+		max-width: 200px;
+		height: auto;
+	}
+}
+
+.directors {
+	margin-top: 30px;
+}
+.directors__title {
+	font-size: calc(22px + 10 * ((100vw - 320px) / (1160 - 320)));
+	text-align: center;
+}
+.directors__row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.directors__row-item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex: 0 0 25%;
+	margin-bottom: 10px;
+}
+.directors__row-item:last-child {
+	margin-left: 0;
+}
+.directors__row-img {
+	max-width: 200px;
+}
+.directors__row-subtitle {
+	font-size: calc(18 + 8 * ((100vw - 320px) / (1160 - 320)));
+	text-align: center;
+}
+.directors__row-years {}
+
+@media (max-width: 862px) {
+	.directors__row-item {
+		flex: 0 0 33.333333%;
+	}
+	.directors__row-img {
+		max-width: 170px;
+	}
+}
+@media (max-width: 512px) {
+	.directors__row-item {
+		flex: 0 0 50%;
+	}
+}
+@media (max-width: 360px) {
+	.directors__row-item {
+		flex: 0 0 100%;
+	}
+	.directors__row-img {
+		max-width: 120px;
 	}
 }
