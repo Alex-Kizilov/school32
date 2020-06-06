@@ -1,4 +1,5 @@
 
+
 //===PRELOAD==
 const images = document.images;
 const	imagesTotalCount = images.length;

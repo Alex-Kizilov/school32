@@ -448,6 +448,10 @@ body.lock {
 	opacity: 1;
 	visibility: visible;
 }
+.open-img.open .open-img__content {
+	transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+	opacity: 1;
+}
 .open-img__body {
 	min-height: 100%;
 	display: flex;
@@ -455,7 +459,13 @@ body.lock {
 	justify-content: center;
 	padding: 30px 10px;
 }
-.open-img__content {}
+.open-img__content {
+	max-width: 500px;
+	padding: 30px;
+	opacity: 0;
+	transition: 0.8s;
+	transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+}
 .open-img__image {
 	max-width: 100%;
 }
