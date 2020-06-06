@@ -53,16 +53,16 @@ body.lock {
 /*===PRELOAD===*/
 .preloader-2 {
 	position: fixed;
+	top: 0;
 	left: 0;
 	width: 0;
 	height: 100%;
 	width: 100%;
 	background-color: #000;
-	z-index: 2;
 	transition: 1s;
 	opacity: 1;
 	visibility: visible;
-	z-index: 30;
+	z-index: 51;
 }
 .loader {
 	width: 100%;
@@ -72,7 +72,7 @@ body.lock {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	z-index: 30;
+	z-index: 51;
 }
 .preloader-2.done {
 	opacity: 0;
@@ -177,6 +177,7 @@ body.lock {
 	padding: 0 10px;
 }
 .header {
+	position: fixed;
 	width: 100%;
 	top: 0;
 	left: 0;

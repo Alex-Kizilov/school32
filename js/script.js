@@ -24,7 +24,6 @@ function imageLoaded() {
 		setTimeout(function() {
 			if (!preloader.classList.contains('done')) {
 				preloader.classList.add('done');
-				header.style.position = 'fixed';
 			}
 		}, 1000);
 
