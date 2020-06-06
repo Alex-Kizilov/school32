@@ -5,7 +5,6 @@ const	imagesTotalCount = images.length;
 let imagesLoadedCount = 0;
 let percDisplay = document.querySelector('#load_perc');
 const preloader = document.querySelector('#page-preloader');
-const header = document.querySelector('.header');
 
 for(let i = 0; i < imagesTotalCount; i++) {
 
