@@ -35,6 +35,7 @@ const burger = document.querySelector('.header__burger');
 const menu = document.querySelector('.header__menu');
 const body = document.querySelector('body');
 const lockPadding = document.querySelectorAll('.lock-padding');
+const cross = document.querySelector('.img__close');
 
 let unlock = true;
 
@@ -117,5 +118,12 @@ const closeImg = (e) => {
 	}
 }
 
+const closeImgOnСross = (e) => {
+	imgClassOpen.classList.remove('open');
+	bodyUnLock();
+	e.preventDefault();
+}
+
 directorsRow.addEventListener('click', openImg);
 imgClassOpen.addEventListener('click', closeImg);
+cross.addEventListener('click', closeImgOnСross);

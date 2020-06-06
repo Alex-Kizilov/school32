@@ -463,11 +463,20 @@ body.lock {
 	max-width: 500px;
 	padding: 30px;
 	opacity: 0;
+	position: relative;
 	transition: 0.8s;
 	transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
 }
 .open-img__image {
 	max-width: 100%;
+}
+.img__close {
+	position: absolute;
+	right: 10%;
+    font-size: 50px;
+    font-weight: 700;
+    top: 5%;
+    color: #000;
 }
 
 @media (max-width: 862px) {
