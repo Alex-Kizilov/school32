@@ -1,4 +1,5 @@
 
+const body = document.querySelector('body');
 
 //===PRELOAD==
 const images = document.images;
@@ -16,24 +17,28 @@ for(let i = 0; i < imagesTotalCount; i++) {
 }
 
 
-function imageLoaded() {
+function imageLoaded () {
 	imagesLoadedCount++;
 	percDisplay.innerHTML = (((100 / imagesTotalCount) * imagesLoadedCount) << 0) + '%';
 
 	if (imagesLoadedCount >= imagesTotalCount) {
+	body.classList.add('lock');
 		setTimeout(function() {
 			if (!preloader.classList.contains('done')) {
 				preloader.classList.add('done');
 			}
+			if (preloader.classList.contains('done')) {
+				body.classList.remove('lock');
+			}
 		}, 1000);
-
 	}
 }
 //===PRELOAD==
 
+
+
 const burger = document.querySelector('.header__burger');
 const menu = document.querySelector('.header__menu');
-const body = document.querySelector('body');
 const lockPadding = document.querySelectorAll('.lock-padding');
 const cross = document.querySelector('.img__close');
 
