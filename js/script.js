@@ -2,6 +2,7 @@
 const body = document.querySelector('body');
 
 //===PRELOAD==
+
 const images = document.images;
 const	imagesTotalCount = images.length;
 let imagesLoadedCount = 0;
@@ -17,7 +18,7 @@ for(let i = 0; i < imagesTotalCount; i++) {
 }
 
 
-function imageLoaded () {
+/*function imageLoaded () {
 	imagesLoadedCount++;
 	percDisplay.innerHTML = (((100 / imagesTotalCount) * imagesLoadedCount) << 0) + '%';
 	body.classList.add('lock');
@@ -29,22 +30,53 @@ function imageLoaded () {
 			}
 			if (preloader.classList.contains('done')) {
 				body.classList.remove('lock');
+
+				const raw = localStorage.getItem('show');
+				const show = JSON.parse(raw);
+				show.show = false;
+				console.log(show.show);
+			}
+		}, 1000);
+	}
+}
+*/
+function imageLoaded () {
+	imagesLoadedCount++;
+	percDisplay.innerHTML = (((100 / imagesTotalCount) * imagesLoadedCount) << 0) + '%';
+	body.classList.add('lock');
+
+	if (JSON.parse(localStorage.getItem('isLoader'))) {
+		preloader.classList.add('done');
+		document.querySelector('.preloader-2').style.transition = '0s';
+		document.querySelector('.preloader-2').style.zIndex = '0';
+		return;
+	}
+	localStorage.setItem('isLoader', true);
+
+	if (imagesLoadedCount >= imagesTotalCount) {
+		setTimeout(function() {
+			if (!preloader.classList.contains('done')) {
+				preloader.classList.add('done');
+			}
+			if (preloader.classList.contains('done')) {
+				body.classList.remove('lock');
+
+				const raw = localStorage.getItem('show');
+				const show = JSON.parse(raw);
+				show.show = false;
+				console.log(show.show);
 			}
 		}, 1000);
 	}
 }
 //===PRELOAD==
 
-
+//===BURGER===
 
 const burger = document.querySelector('.header__burger');
 const menu = document.querySelector('.header__menu');
 const lockPadding = document.querySelectorAll('.lock-padding');
 const cross = document.querySelector('.img__close');
-
-let unlock = true;
-
-const timeout = 800;
 
 
 burger.addEventListener('click', (event) => {
@@ -60,6 +92,13 @@ menu.addEventListener('click', (event) => {
 	burger.classList.remove('active');
 	body.classList.remove('lock');
 });
+
+//===BURGER===
+
+
+let unlock = true;
+
+const timeout = 800;
 
 function bodyLock () {
 	const lockPaddingValue = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
