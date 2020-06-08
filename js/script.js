@@ -52,7 +52,7 @@ function imageLoaded () {
 		body.classList.remove('lock');
 		return;
 	}
-	localStorage.setItem('isLoader', true);
+	
 
 	if (imagesLoadedCount >= imagesTotalCount) {
 		setTimeout(function() {
@@ -69,6 +69,7 @@ function imageLoaded () {
 			}
 		}, 1000);
 	}
+	localStorage.setItem('isLoader', true);
 }
 //===PRELOAD==
 
