@@ -431,6 +431,9 @@ body.lock {
 .directors__row-years {
 	font-size: calc(12px + 4 * ((100vw - 320px) / (1160 - 320)));
 }
+.directors__row-item picture {
+	cursor: pointer;
+}
 .open-img {
 	position: fixed;
 	width: 100%;
@@ -477,6 +480,7 @@ body.lock {
     font-weight: 700;
     top: 5%;
     color: #000;
+    cursor: pointer;
 }
 
 @media (max-width: 862px) {

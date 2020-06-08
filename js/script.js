@@ -20,9 +20,9 @@ for(let i = 0; i < imagesTotalCount; i++) {
 function imageLoaded () {
 	imagesLoadedCount++;
 	percDisplay.innerHTML = (((100 / imagesTotalCount) * imagesLoadedCount) << 0) + '%';
+	body.classList.add('lock');
 
 	if (imagesLoadedCount >= imagesTotalCount) {
-	body.classList.add('lock');
 		setTimeout(function() {
 			if (!preloader.classList.contains('done')) {
 				preloader.classList.add('done');
@@ -96,7 +96,7 @@ function bodyUnLock() {
 	}, timeout);
 }
 
-const directorsRow = document.querySelector('.directors__row');
+/*const directorsRow = document.querySelector('.directors__row');
 const imgClassOpen = document.querySelector('.open-img');
 
 const openImg = (event) => {
@@ -115,6 +115,27 @@ const openImg = (event) => {
 		}
 	}
 };
+*/
+
+const directorsRow = document.querySelector('.directors__row');
+const imgClassOpen = document.querySelector('.open-img');
+
+const openImg = (event) => {
+	const directorItem = event.target.closest('.directors__row-img');
+
+	if (directorItem) {
+		const openImage = document.querySelector('.open-img__image');
+
+		if(directorItem.src) {
+			openImage.src = directorItem.src;
+			if (!imgClassOpen.classList.contains('open')) {
+				imgClassOpen.classList.add('open');
+			}
+			bodyLock();
+		}
+	}
+};
+
 
 const closeImg = (e) => {
 	if(!e.target.classList.contains('open-img__image')) {
@@ -132,3 +153,28 @@ const closeImgOnСross = (e) => {
 directorsRow.addEventListener('click', openImg);
 imgClassOpen.addEventListener('click', closeImg);
 cross.addEventListener('click', closeImgOnСross);
+
+(function() {
+	//роверяем поддержку
+	if (!Element.prototype.closest) {
+		//реализуем
+		Element.prototype.closest = function (css) {
+			var node = this;
+			while (node) {
+				if (node.matches(css)) return node;
+				else node = node.parentElement;
+			}
+			return null;
+		};
+	}
+})();
+(function () {
+	//проверяем поддержку
+	if (!Element.prototype.matches) {
+		//определяем свойство
+		Element.prototype.matches = Element.prototype.matchesSelector ||
+			Element.prototype.webkitMatchesSelector ||
+			Element.prototype.mozMatchesSelector ||
+			Element.prototype.msMatchesSelector;
+	}
+})();
