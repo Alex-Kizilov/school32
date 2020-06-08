@@ -49,6 +49,7 @@ function imageLoaded () {
 		preloader.classList.add('done');
 		document.querySelector('.preloader-2').style.transition = '0s';
 		document.querySelector('.preloader-2').style.zIndex = '0';
+		body.classList.remove('lock');
 		return;
 	}
 	localStorage.setItem('isLoader', true);
